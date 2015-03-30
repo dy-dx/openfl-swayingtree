@@ -1,6 +1,7 @@
 package;
 
 import openfl.display.Sprite;
+import noisehx.Perlin;
 
 class Tree extends Sprite {
 
@@ -39,20 +40,21 @@ class Tree extends Sprite {
 
   }
 
-  public function update (time:Int):Void
+  public function update (time:Float, perlin:Perlin):Void
   {
     if (left == null || right == null)
     {
       return;
     }
 
-    var wind = 0.2 * Math.sin(time/1000) * (180/Math.PI);
+    // var wind = 0.2 * Math.sin(time/1000) * (180/Math.PI);
+    var wind = 0.2 * perlin.noise2d(time/2000, 0.1) * (180/Math.PI);
 
     left.rotation = theta + wind;
     right.rotation = -theta + wind;
 
-    left.update(time);
-    right.update(time);
+    left.update(time, perlin);
+    right.update(time, perlin);
   }
 
 }
