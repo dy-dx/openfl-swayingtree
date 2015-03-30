@@ -19,9 +19,9 @@ class Tree extends Sprite {
 
     this.theta = theta;
 
-    this.graphics.beginFill(0x000000, 1.0);
-    this.graphics.drawRect(0, -bWidth/2, bLength, bWidth);
-    this.graphics.endFill();
+    graphics.beginFill(0x000000, 1.0);
+    graphics.drawRect(0, -bWidth/2, bLength, bWidth);
+    graphics.endFill();
 
     var nextBLength = bLength * 0.8;
     var nextBWidth = bWidth * 0.70;
